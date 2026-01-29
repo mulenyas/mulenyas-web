@@ -1,0 +1,572 @@
+/* ========================================
+   MULENYAS — Estilos base
+   Editorial silenciosa / Marca con aura
+   ======================================== */
+
+/* Variables de color */
+:root {
+  --marfil: #FBF9F4;
+  --arena: #E8DFD0;
+  --negro-lavado: #2A2823;
+  --terracota: #B8644D;
+  --sombra-suave: rgba(42, 40, 35, 0.08);
+  --sombra-media: rgba(42, 40, 35, 0.15);
+}
+
+/* Reset minimalista */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--marfil);
+  color: var(--negro-lavado);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+/* ========================================
+   NAVEGACIÓN
+   ======================================== */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: rgba(251, 249, 244, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--arena);
+}
+
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 48px 80px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 1400px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 85vh;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  animation: fadeInUp 1.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text {
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1.6s ease-out 0.4s forwards;
+}
+
+.hero-text h1 {
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--negro-lavado);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  animation: fadeIn 2s ease-out 1s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 0.5; }
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--negro-lavado);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.3; }
+  50% { transform: scaleY(1.5); opacity: 0.6; }
+}
+
+/* ========================================
+   ESCENAS (Segunda pantalla, etc)
+   ======================================== */
+
+.scene {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 48px;
+}
+
+.scene-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.scene-text {
+  padding: 40px 0;
+}
+
+.scene-text .lead {
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: 1.4;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.scene-image img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px var(--sombra-suave);
+}
+
+/* ========================================
+   COLECCIÓN (The Object)
+   ======================================== */
+
+.collection {
+  padding: 120px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.collection-header {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.collection-header h2 {
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 60px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: var(--arena);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product:hover .product-image img {
+  transform: scale(1.03);
+}
+
+.product-info {
+  padding: 0 8px;
+}
+
+.product-info h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.product-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.btn-acquire {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  background: var(--negro-lavado);
+  color: var(--marfil);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-acquire:hover {
+  background: var(--terracota);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   STORY
+   ======================================== */
+
+.story {
+  padding: 120px 48px;
+  background: var(--arena);
+}
+
+.story-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.story h2 {
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 80px;
+  letter-spacing: -0.02em;
+}
+
+.story-block {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.story-block p {
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.story-image {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.story-image img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  box-shadow: 0 30px 80px var(--sombra-media);
+}
+
+/* ========================================
+   CRAFT
+   ======================================== */
+
+.craft {
+  padding: 120px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.craft-header {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.craft-header h2 {
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.craft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.craft-image {
+  position: relative;
+}
+
+.craft-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  box-shadow: 0 12px 40px var(--sombra-suave);
+}
+
+.craft-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 16px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.craft-text {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.craft-text p {
+  font-size: clamp(20px, 2.5vw, 28px);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  background: var(--negro-lavado);
+  color: var(--marfil);
+  padding: 80px 48px 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(251, 249, 244, 0.2);
+}
+
+.footer-brand .logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 32px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 968px) {
+  .nav {
+    padding: 20px 24px;
+  }
+  
+  .nav-links {
+    gap: 20px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 100px 24px 60px;
+  }
+
+  .hero-image img {
+    height: 70vh;
+  }
+
+  .scene-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .scene-image img {
+    height: 400px;
+  }
+
+  .collection {
+    padding: 80px 24px;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+
+  .story {
+    padding: 80px 24px;
+  }
+
+  .story h2 {
+    margin-bottom: 60px;
+  }
+
+  .story-block {
+    margin-bottom: 48px;
+  }
+
+  .craft {
+    padding: 80px 24px;
+  }
+
+  .craft-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer {
+    padding: 60px 24px 32px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-logo {
+    font-size: 12px;
+  }
+
+  .nav-links {
+    gap: 16px;
+    font-size: 11px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .product-image {
+    aspect-ratio: 4/5;
+  }
+
+  .craft-image img {
+    height: 380px;
+  }
+}
