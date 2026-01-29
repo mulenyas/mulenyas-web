@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/24936096/README.md)
 # Assets / Imágenes
 
 Esta carpeta debe contener todas las imágenes de la web.
